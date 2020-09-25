@@ -10,13 +10,13 @@ function setup() {
   weight = random(30,52);
   bullet = createSprite(50,200,0,50)
   bullet.velocityX = speed;
-  
+  bullet.shapeColor = color("gold")
 
 }
 
 function draw() {
 
-
+background(0);
  
 
 
@@ -41,18 +41,16 @@ function draw() {
  }
 
 
-function hasCollided(bullet,wall){
+function   hasCollided(lbullet, lwall) { 
+  bulletRightEdge=lbullet.x +lbullet.width;
+   wallLeftEdge=lwall.x; 
+   
+   if (bulletRightEdge>=wallLeftEdge) {
+      return true } 
 
-    bulletRightEdge = bullet.x + bullet.width
-   wallLeftEdge = wall.x
+      return false; }
 
-   if(bulletRightEdge>= wall.wallLeftEdge)
-   {
-     return true
-   }
-   return false
-}
-
+   
 
 
 
